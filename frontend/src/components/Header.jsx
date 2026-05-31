@@ -26,7 +26,7 @@ export default function Header() {
     gallery: location.pathname === "/gallery",
     blogs: location.pathname === "/blogs",
     contacts: location.pathname === "/contacts",
-    myevents: location.pathname === "/my-events",
+    myevents: location.pathname === "/myevents",
   };
 
   // Scroll effect for header

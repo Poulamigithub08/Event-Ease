@@ -6,7 +6,7 @@ import Fakedata from "./pages/Fakedata";
 import Signin from "./pages/Signin";
 import Signuphost from "./pages/Signuphost";
 import Signupguest from "./pages/Signupguest";
-import Contactus from "./pages/contactus";
+import Contactus from "./pages/Contactus";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AboutUs from "./pages/Aboutus";

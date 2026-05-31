@@ -2,29 +2,37 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const connectDB = require("./config/db");
-const swaggerUi = require("swagger-ui-express");
-const swaggerSpec = require("./swagger");
 
 dotenv.config();
-
-connectDB(); // 👈 MUST be before routes
+connectDB();
 
 const app = express();
 
-app.use(cors());
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:3000",
+  process.env.FRONTEND_URL,
+].filter(Boolean);
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
+    callback(new Error("Not allowed by CORS"));
+  },
+  credentials: true,
+}));
+
 app.use(express.json());
 
+app.get("/", (req, res) => res.json({ message: "EventEase API is running ✅" }));
 app.use("/api/auth", require("./routes/auth.routes"));
 app.use("/api/events", require("./routes/event.routes"));
 
+// Global error handler
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ success: false, message: "Internal server error" });
+});
 
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
-
-app.get("/", (req, res) => {
-  res.send("EventEase API is running");
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

@@ -34,6 +34,8 @@ export default function Signup() {
   // Simulate API call
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (data.password !== data.confirmPassword) { toast.error("Passwords do not match!"); return; }
+    if (data.password.length < 6) { toast.error("Password must be at least 6 characters."); return; }
     setIsSubmitting(true);
 
     try {
