@@ -15,6 +15,7 @@ import Gallery from "./pages/Gallerry";
 import Blogs from "./pages/Blogs";
 import Events from "./pages/Events";
 import MyEvents from "./pages/Myevents";
+import ChatWidget from "./components/ChatWidget";
 
 export default function App() {
   return (
@@ -57,6 +58,8 @@ export default function App() {
         pauseOnHover
         theme="colored"
       />
+      <ChatWidget />
     </div>
   );
 }
+
