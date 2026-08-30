@@ -82,3 +82,4 @@ volumes:
 networks:
   eventease:
     driver: bridge
+    enable_ipv6: false

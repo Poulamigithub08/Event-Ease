@@ -12,7 +12,7 @@ OLLAMA_PID=$!
 
 echo "⏳ Waiting for Ollama to become ready..."
 
-until curl -sf http://localhost:11434/api/tags > /dev/null; do
+until ollama list >/dev/null 2>&1; do
     sleep 2
 done
 
