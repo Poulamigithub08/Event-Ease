@@ -296,18 +296,28 @@ export default function ChatWidget() {
                 className="flex-1 bg-transparent text-white text-xs placeholder-gray-500 focus:outline-none disabled:opacity-50"
               />
               <button
-                onClick={() => sendMessage()}
-                disabled={!input.trim() || isLoading}
-                className="w-7 h-7 bg-gradient-to-br from-red-500 to-red-700 text-white rounded-lg flex items-center justify-center flex-shrink-0 hover:from-red-400 hover:to-red-600 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed hover:scale-105"
-                aria-label="Send"
+                  onClick={() => sendMessage()}
+                  disabled={!input.trim() || isLoading}
+                  className="w-7 h-7 bg-gradient-to-br from-red-500 to-red-700 text-white rounded-lg flex items-center justify-center flex-shrink-0 hover:from-red-400 hover:to-red-600 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed hover:scale-105"
+                  aria-label="Send"
               >
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                <svg
+                    className="w-3.5 h-3.5 rotate-90"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                  <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.5}
+                      d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                  />
                 </svg>
               </button>
             </div>
             <p className="text-gray-600 text-center mt-1.5" style={{ fontSize: "9px" }}>
-              Powered by Gemma 3n · Runs locally · No data sent to cloud
+              Powered by Qwen 2.5 · Runs locally · No data sent to cloud
             </p>
           </div>
         </div>
